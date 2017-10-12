@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 read -i 'mp4' -p "what file type are you renaming?(mp4,avi,txt,img) " ext
 ext=$(echo $ext|tr -d '\n')
@@ -15,7 +15,7 @@ for line in $(cat $FILE)
 do
  echo "$line"
  sline=$(echo $line | sed "s/$str/$rep/g")
- read -e -i "$sline" -p "what should the new name be? " new_line
+ read -e -i "$sline" -p "is this correct? " new_line
  mv $line $new_line
 done
 
